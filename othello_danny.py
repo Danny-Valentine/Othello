@@ -379,7 +379,7 @@ def play():
         else:
             print(str(player2) + " (O) wins.")
     else:
-        prinDt("The game is a draw.")
+        print("The game is a draw.")
 
 
 
