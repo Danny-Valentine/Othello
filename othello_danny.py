@@ -319,9 +319,10 @@ def play():
         
         if getValidMoves(board,who) != []: #Check if there are any valid moves to be made by the current player
             if currentplayer == 'C':
-                print("It is the computer's turn (" + str(symbol) + ") turn\n")
+                print("It is the computer's (" + str(symbol) + ") turn\n")
                 print("The computer will make its move\n")
                 move=suggestMove1(board,who)
+                print("Computer's move: " + str(move))
                 makeMove(board,move,who)
             else:
                 print("\nIt is " + str(currentplayer) + "'s (" + str(symbol) + ") turn\n")
