@@ -50,8 +50,14 @@ def printBoard(board):
     #print(' +-+-+-+-+-+-+-+-+')
 
 def scoreboard(board,player1,player2):
-    print(str(player1) + "'s Score: " + str(player1scoreBoard(board,player1)))
-    print(str(player2) + "'s Score: " + str(player2scoreBoard(board,player2)))
+    if player1 == 'C':
+        print("Computers's Score: " + str(player1scoreBoard(board,player1)))
+    else:
+        print(str(player1) + "'s Score: " + str(player1scoreBoard(board,player1)))
+    if player2 == 'C':
+        print("Computers's Score: " + str(player2scoreBoard(board,player1)))
+    else:
+        print(str(player1) + "'s Score: " + str(player2scoreBoard(board,player1)))
     
 def strToIndex(s):
     s=str(s)
@@ -320,9 +326,9 @@ def play():
         if getValidMoves(board,who) != []: #Check if there are any valid moves to be made by the current player
             if currentplayer == 'C':
                 print("It is the computer's (" + str(symbol) + ") turn\n")
-                print("The computer will make its move\n")
+                #print("The computer will make its move\n")
                 move=suggestMove1(board,who)
-                print("Computer's move: " + str(move))
+                print("Computer's move: " + str(chr(move[1]+97) + str(move[0]+1)) + "\n")
                 makeMove(board,move,who)
             else:
                 print("\nIt is " + str(currentplayer) + "'s (" + str(symbol) + ") turn\n")
@@ -363,11 +369,17 @@ def play():
     print(player1scoreBoard(board,player2))
     print(player2scoreBoard(board,player2))
     if player1scoreBoard(board,player1)>player2scoreBoard(board,player2):
-        print(str(player1) + " (X) wins.")
+        if player1 == 'C':
+            print("Computer (X) wins.")
+        else:
+            print(str(player1) + " (X) wins.")
     elif player1scoreBoard(board,player1)<player2scoreBoard(board,player2):
-        print(str(player2) + " (O) wins.")
+        if player2 == 'C':
+            print("Computer (O) wins.")
+        else:
+            print(str(player2) + " (O) wins.")
     else:
-        print("The game is a draw.")
+        prinDt("The game is a draw.")
 
 
 
